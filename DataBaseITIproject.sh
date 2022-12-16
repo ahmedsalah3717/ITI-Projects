@@ -36,7 +36,7 @@ clear
  
 elif [[ $answer == go ]];then
 clear
-ls -F $HOME
+ls -F $HOME | grep "/$"
 read -p "Enter the name of the DBMS directory you want to access to  " dbms_location
 cd $HOME/$dbms_location
 clear
@@ -49,7 +49,7 @@ else
 fi
   
 
-
+#the main manu that appears for DML and DDL operations
 function CRUDMENU {
   echo  "Welcome to the CRUD Menu you can chose from these options: "
   sleep 1
@@ -68,7 +68,7 @@ function CRUDMENU {
     1)  createDatabase ;;
     2)  ls -d */ ; sleep 3 ; CRUDMENU ;;
     3)  connect ;;
-    4)  dropDataBase ;;
+    4)  dropping ;;
     5) exit ;;
     *) echo " Wrong Choice " ; CRUDMENU;
   esac
@@ -92,9 +92,6 @@ fi
    
   mkdir "$database_name_creation-$(date +%F)" 2>> error-$(date +%F).txt
 
- 
-
-  
     
   if [[ $? == 0 ]]
   then
@@ -105,32 +102,47 @@ fi
   fi
   CRUDMENU
 }
-############
-function connect {
 
+#DropDataBase
+
+function dropping {
   if [[ $answer == yes ]];then
    cd $HOME/$dbmsname/
-   #ls -F $pwd
    ls -d */
 
    elif [[ $answer == go ]];then
    cd $HOME/$dbms_location/
-   #ls -F $pwd
+   ls -d */
+
+   fi
+  echo "Enter Database Name You want to Drop: "
+  read dropdb_name
+  rm -r $dropdb_name 2>> error-$(date +%F).txt
+  if [[ $? == 0 ]]; then
+    echo "Database Dropped Successfully"
+  else
+    echo "Wrong DataBase Name"
+  fi
+  CRUDMENU
+}
+############Connect to DataBase
+function connect {
+
+  if [[ $answer == yes ]];then
+   cd $HOME/$dbmsname/
+   ls -d */
+
+   elif [[ $answer == go ]];then
+   cd $HOME/$dbms_location/
    ls -d */
 
     
 
    fi
     echo "Enter The Database Name You Want To Connect To : "
+    #get the name of database you want to cd to by user
   read dbName_connect
-  #for i in `ls $pwd`
-  #if [[ $i == $dbName_connect && -f $dbName_connect ]];then
   cd $dbName_connect
-    
-  
- 
-
-  #cd  $HOME/$dbms_location/$dbName_connect 2>> error-$(date +%F).txt
  
   if [[ $? == 0 ]]; then
     echo "Database $dbName_connect was Successfully Selected"
@@ -141,3 +153,4 @@ function connect {
   fi
 }
 CRUDMENU
+

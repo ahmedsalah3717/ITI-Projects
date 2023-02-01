@@ -1,22 +1,23 @@
+Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent any
-
+    agent any 
     stages {
-        stage('build') {
+        stage('Build') { 
             steps {
-                echo 'build'
-                sh "ls"
-                sh "docker ps"
+                echo "ay 7aga "
+                
+                // 
             }
         }
-        stage('test') {
+        stage('Test') { 
             steps {
-                echo 'test'
+                echo "ay 7aga 2"
+                // 
             }
         }
-        stage('deploy') {
+        stage('Deploy') { 
             steps {
-                echo 'deploy'
+                // 
             }
         }
     }

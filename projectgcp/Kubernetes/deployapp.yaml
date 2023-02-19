@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-dep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: app-dep
+  template:
+    metadata:
+      labels:
+        name: app-dep
+    spec:
+      containers:
+      - name: app-dep-container
+        image: gcr.io/peerless-aria-377213/devops-challenge-image
+        ports:
+        - containerPort: 8000
+      - name: redis-cont
+        image: gcr.io/peerless-aria-377213/redis-image
+        ports:
+          - containerPort: 6379
+          

@@ -10,7 +10,9 @@ resource "google_compute_network" "vpc_network" {
   project                 = "peerless-aria-377213"
   name                    = "vpc-network"
   auto_create_subnetworks = false
-  # mtu                     = 1460
+  mtu                     = 1460
+  delete_default_routes_on_create = false
+
 
 }
 
@@ -35,15 +37,15 @@ resource "google_compute_subnetwork" "restricted_subnet" {
   private_ip_google_access = true
 
 
-  secondary_ip_range {
-    range_name    = "kubernetes-pod-range"
-    ip_cidr_range = "10.48.0.0/14"
-  }
+  # secondary_ip_range {
+  #   range_name    = "kubernetes-pod-range"
+  #   ip_cidr_range = "10.48.0.0/14"
+  # }
 
-  secondary_ip_range {
-    range_name    = "kubernetes-service-range"
-    ip_cidr_range = "10.52.0.0/20"
-  }
+  # secondary_ip_range {
+  #   range_name    = "kubernetes-service-range"
+  #   ip_cidr_range = "10.52.0.0/20"
+  # }
 
 }
 
@@ -51,6 +53,7 @@ resource "google_compute_subnetwork" "restricted_subnet" {
 
 # Firewall for VPC 
 resource "google_compute_firewall" "management_subnet_firewall" {
+ 
   name    = "management-subnet-firewall"
   network = google_compute_network.vpc_network.id
   direction = "INGRESS"
@@ -60,4 +63,7 @@ resource "google_compute_firewall" "management_subnet_firewall" {
     protocol = "tcp"
     ports    = ["22", "80"]
   }
+
+  
+  
 }

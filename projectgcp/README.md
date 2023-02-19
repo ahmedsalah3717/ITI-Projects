@@ -57,6 +57,15 @@ Deploying Using Kubectl
 $ kubectl apply -f .
 ```
 
+###Deplyoing SVC and Deployment files on the vm
+
+
+
+### Copy the loadBalancer Ip then paste it in your browser
+
+
+ 
+
 
 
 

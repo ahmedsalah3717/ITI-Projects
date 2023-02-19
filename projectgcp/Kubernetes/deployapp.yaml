@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
       - name: app-dep-container
-        image: gcr.io/peerless-aria-377213/devops-challenge-image
+        image: gcr.io/peerless-aria-377213/devops-challenge-image:latest
         ports:
         - containerPort: 8000
       - name: redis-cont
-        image: gcr.io/peerless-aria-377213/redis-image
+        image: redis
         ports:
           - containerPort: 6379
-          
+

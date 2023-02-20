@@ -6,24 +6,14 @@ resource "google_container_cluster" "private_gke_cluster" {
   initial_node_count       = 1
   network                  = google_compute_network.vpc_network.id
   subnetwork               = google_compute_subnetwork.restricted_subnet.id
-  # logging_service          = "logging.googleapis.com/kubernetes"
-  # monitoring_service       = "monitoring.googleapis.com/kubernetes"
-  # networking_mode          = "VPC_NATIVE"
+
   
 
   node_locations = [
     "us-central1-b"
   ]
 
-  # addons_config {
-  #   http_load_balancing {
-  #     disabled = false
-  #   }
-    # horizontal_pod_autoscaling {
-    #   disabled = false
-    # }
-  # }
-
+ 
   master_authorized_networks_config {
     cidr_blocks {
         cidr_block = "10.1.0.0/24"
@@ -38,14 +28,10 @@ resource "google_container_cluster" "private_gke_cluster" {
     channel = "REGULAR"
   }
 
-  # workload_identity_config {
-  #   workload_pool = "peerless-aria-377213.svc.id.goog"
-  # }
+
 
   ip_allocation_policy {
-    # cluster_ipv4_cidr_block = "172.16.0.32/28"
-    # cluster_secondary_range_name  = "k8s-pod-range"
-    # services_secondary_range_name = "k8s-service-range"
+
   }
 
   private_cluster_config {

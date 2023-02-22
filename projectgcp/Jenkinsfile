@@ -22,7 +22,7 @@ pipeline {
                     if (env.BRANCH_NAME == "dev" || env.BRANCH_NAME == "test" || env.BRANCH_NAME == "prod") {
                             withCredentials([file(credentialsId: 'kubernetes_kubeconfig', variable: 'KUBECONFIG')]) {
                           sh """
-                              export BUILD_NUMBER=\$(cat ../bakehouse-build-number.txt)
+                              export BUILD_NUMBER=\$(cat ../finalproject.txt)
                               mv Deployment/deploy.yaml Deployment/deploy.yaml.tmp
                               cat Deployment/deploy.yaml.tmp | envsubst > Deployment/deploy.yaml
                               rm -f Deployment/deploy.yaml.tmp

@@ -1,4 +1,10 @@
-# DevOps Challenge Demo Code:Gcp-Project
+# Final Project
+![MicrosoftTeams-image (4)](https://user-images.githubusercontent.com/58382911/220772533-7d19497e-48d2-426d-a8ad-9ca2abc2f49b.png)
+
+![MicrosoftTeams-image (5)](https://user-images.githubusercontent.com/58382911/220772602-918ac72b-df9f-4537-bfb9-5d2cf56c2950.png)
+
+![MicrosoftTeams-image (6)](https://user-images.githubusercontent.com/58382911/220772646-ab80e335-9eac-48ff-83a0-096b4da34442.png)
+
 
 
 ### 1-Terraform Ifrastructure
@@ -84,6 +90,18 @@ $ kubectl apply -f .
 ```bash
 $ kubectl get po,svc
 ``` 
+
+### Install Jenkins and jenkins slave on the cluster & configure the slave 
+
+![Screenshot from 2023-02-22 01-35-01](https://user-images.githubusercontent.com/58382911/220773069-c3bc137b-9ebb-470b-b065-aa82cbc2b2d7.png)
+
+### login - building - pushing (Image to dockerhub)
+![release stage sucess elhamdllah](https://user-images.githubusercontent.com/58382911/220784289-16d272c4-5c51-401c-90d1-4e95e004dc9e.png)
+
+![Dockerhub image](https://user-images.githubusercontent.com/58382911/220784342-09ef7698-f2b7-4835-9940-36b7bec25354.png)
+### logs 
+![screencapture-34-28-146-6-8080-job-iti-final-job-Final-Project-1-console-2023-02-22-10_05_51](https://user-images.githubusercontent.com/58382911/220784422-980965ec-4ac0-4e77-9b25-043ebd498cc9.png)
+
 
 
 

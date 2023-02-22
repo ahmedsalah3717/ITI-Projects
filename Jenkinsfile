@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                   if (env.BRANCH_NAME == "release") {
+                   if (params.ENV == "release") {
                        withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                        sh """
                             docker login -u $USERNAME -p $PASSWORD
@@ -19,7 +19,7 @@ pipeline {
         stage('deploy') {
             steps {
                 script {
-                    if (env.BRANCH_NAME == "dev" || env.BRANCH_NAME == "test" || env.BRANCH_NAME == "prod") {
+                    if (params.ENV == "dev" || params.ENV == "test" || params.ENV == "prod") {
                             withCredentials([file(credentialsId: 'kubernetes_kubeconfig', variable: 'KUBECONFIG')]) {
                           sh """
                               export BUILD_NUMBER=\$(cat ../finalproject.txt)

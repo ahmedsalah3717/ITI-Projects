@@ -1,24 +1,27 @@
 pipeline {
-    agent any 
+    agent any
+
     stages {
-        stage('Build') { 
+        stage('Checkout') {
             steps {
-                echo "ay 7aga "
-                
-                // 
+                git 'https://github.com/your/repo.git'
             }
         }
-        stage('Test') { 
+
+        stage('Build image') {
             steps {
-                echo "ay 7aga 2"
-                // 
+                sh 'docker build -t your-docker-username/your-image-name .'
             }
         }
-        stage('Deploy') { 
+
+        stage('Push image') {
             steps {
-                echo "here"
-                // 
+                withCredentials([string(credentialsId: 'your-dockerhub-creds-id', variable: 'DOCKERHUB_CREDS')]) {
+                    sh 'echo $DOCKERHUB_CREDS | docker login -u your-docker-username --password-stdin'
+                    sh 'docker push your-docker-username/your-image-name'
+                }
             }
         }
     }
 }
+

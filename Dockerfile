@@ -1,13 +1,5 @@
-FROM node:14
+# Use an existing Docker image as a base
+FROM alpine:latest
 
-WORKDIR /app
-
-COPY package.json .
-
-RUN npm install
-
-COPY . .
-
-EXPOSE 80
-
-CMD [ "node", "app.mjs" ]
+# Run a command to print "Hello, World!"
+CMD echo "Hello, World!"

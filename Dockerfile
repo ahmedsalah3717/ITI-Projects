@@ -6,7 +6,8 @@ COPY package.json .
 
 RUN npm install
 
-COPY . .
+COPY helpers.mjs .
+COPY app.mjs .
 
 EXPOSE 3000
 

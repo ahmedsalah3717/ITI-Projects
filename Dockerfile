@@ -1,9 +1,13 @@
-FROM ubuntu 
-COPY index.html /var/www/html/
-RUN apt update 
-RUN apt install –y apache2 
-RUN apt install –y apache2-utils 
-RUN apt clean 
+FROM node:14
 
-EXPOSE 80
-CMD [“apache2ctl”, “-D”, “FOREGROUND”]
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD [ "node", "app.mjs" ]

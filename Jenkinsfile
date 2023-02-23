@@ -25,7 +25,7 @@ pipeline {
                     if (params.ENV == "dev" || params.ENV == "test" || params.ENV == "prod") {
                             withCredentials([file(credentialsId: 'kubernetes_kubeconfig', variable: 'KUBECONFIG')]) {
                sh """
-                     kubectl apply -f deployment --kubeconfig=${KUBECONFIG}
+                     kubectl apply -f Deployment --kubeconfig=${KUBECONFIG}
                   """
                         }
                     }

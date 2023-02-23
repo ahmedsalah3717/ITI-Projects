@@ -15,7 +15,7 @@ resource "google_project_iam_member" "cluster-admin" {
 resource "google_compute_instance" "private-vm" {
   allow_stopping_for_update = true
   name         = "private-vm"
-  machine_type = "e2-small"
+  machine_type = "e2-medium"
   zone         = "us-central1-a" 
  
   boot_disk {

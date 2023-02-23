@@ -59,8 +59,9 @@ resource "google_container_node_pool" "cluster_node_pool" {
   }
 
   node_config {
+    disk_size_gb = 100
     preemptible  = true
-    machine_type = "e2-small"
+    machine_type = "e2-medium"
     service_account = google_service_account.k8s-sa.email
     oauth_scopes = [
     
@@ -80,8 +81,6 @@ resource "google_service_account" "k8s-sa" {
 #calling service acc
 resource "google_project_iam_member" "view_access_gke" {
   project = "peerless-aria-377213"
-  role = "roles/storage.objectViewer"
+  role = "roles/container.admin"
   member = "serviceAccount:${google_service_account.k8s-sa.email}"
 }
-
-

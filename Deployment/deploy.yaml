@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: ahmedsalah3717/finalproject
+          image: ahmedsalah3717/finalproject:latest
           ports:
             - containerPort: 80

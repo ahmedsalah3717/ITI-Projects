@@ -102,6 +102,14 @@ $ kubectl get po,svc
 ### logs 
 ![screencapture-34-28-146-6-8080-job-iti-final-job-Final-Project-1-console-2023-02-22-10_05_51](https://user-images.githubusercontent.com/58382911/220784422-980965ec-4ac0-4e77-9b25-043ebd498cc9.png)
 
+![screencapture-34-134-166-88-8080-job-iti-final-job-Final-Project-29-console-2023-02-23-06_54_10](https://user-images.githubusercontent.com/58382911/220825069-a218c99f-7722-43ee-87df-a3afc5bc3b48.png)
+
+![Screenshot from 2023-02-23 06-53-57](https://user-images.githubusercontent.com/58382911/220825171-c7b53ea1-7129-4b51-99ae-88a16788bf72.png)
+
+### hitting the app 
+![Screenshot from 2023-02-23 06-33-41](https://user-images.githubusercontent.com/58382911/220825274-12deaf66-2932-4e11-b807-0d1d19fc9236.png)
+
+
 
 
 

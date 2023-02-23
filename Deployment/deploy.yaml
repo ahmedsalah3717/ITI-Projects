@@ -1,23 +1,20 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: final
-  name: final
+  name: node-app
+  namespace: myapp
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: final
+      app: myapp
   template:
     metadata:
       labels:
-        app: final
+        app: myapp
     spec:
       containers:
-      - image: ahmedsalah3717/finalproject:${BUILD_NUMBER}
-        name: final
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 80
-        resources: {}
+        - name: myapp
+          image: ahmedsalah3717/finalproject
+          ports:
+            - containerPort: 80
